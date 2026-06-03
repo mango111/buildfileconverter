@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
   <title id="title">BuildFileConverter logo</title>
-  <desc id="desc">A file bracket monogram with BF letters for BuildFileConverter.</desc>
-  <rect width="160" height="160" rx="18" fill="#151613"/>
-  <path d="M26 20h75l33 33v87H26z" fill="#21231e" stroke="#caff3f" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M101 20v33h33" fill="none" stroke="#caff3f" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M48 70h64M48 92h50M48 114h64" stroke="#7fb5c8" stroke-width="7" stroke-linecap="square"/>
-  <rect x="42" y="39" width="52" height="38" fill="#151613" stroke="#caff3f" stroke-width="5"/>
-  <text x="68" y="66" text-anchor="middle" fill="#caff3f" font-family="Menlo, Consolas, monospace" font-size="24" font-weight="900">BF</text>
+  <desc id="desc">A circular file monogram with BF letters for BuildFileConverter.</desc>
+  <circle cx="80" cy="80" r="74" fill="#151613"/>
+  <circle cx="80" cy="80" r="68" fill="none" stroke="#caff3f" stroke-width="6"/>
+  <path d="M51 36h48l24 24v70H51z" fill="#21231e" stroke="#caff3f" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M99 36v25h24" fill="none" stroke="#caff3f" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M64 73h53M64 96h39M64 119h53" stroke="#7fb5c8" stroke-width="6" stroke-linecap="square"/>
+  <rect x="60" y="50" width="46" height="32" rx="4" fill="#151613" stroke="#caff3f" stroke-width="5"/>
+  <text x="83" y="72" text-anchor="middle" fill="#caff3f" font-family="Menlo, Consolas, monospace" font-size="20" font-weight="900">BF</text>
 </svg>

@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="#151613"/>
-  <path d="M12 8h31l9 9v39H12z" fill="#21231e" stroke="#caff3f" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M43 8v10h9" fill="none" stroke="#caff3f" stroke-width="4" stroke-linejoin="round"/>
-  <text x="31" y="39" text-anchor="middle" fill="#caff3f" font-family="Menlo, Consolas, monospace" font-size="18" font-weight="900">BF</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="BuildFileConverter icon">
+  <circle cx="32" cy="32" r="30" fill="#151613"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#caff3f" stroke-width="2"/>
+  <path d="M21 15h21l8 8v26H21z" fill="#21231e" stroke="#caff3f" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M42 15v9h8" fill="none" stroke="#caff3f" stroke-width="3.5" stroke-linejoin="round"/>
+  <rect x="24" y="25" width="22" height="16" rx="2" fill="#151613" stroke="#7fb5c8" stroke-width="2"/>
+  <text x="35" y="37" text-anchor="middle" fill="#caff3f" font-family="Menlo, Consolas, monospace" font-size="10" font-weight="900">BF</text>
 </svg>
