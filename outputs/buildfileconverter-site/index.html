@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BuildFileConverter - PoE2 Build Link to .build Converter</title>
+    <meta
+      name="description"
+      content="Convert PoE2 build links into .build starter files, check build file structure, and follow OS-specific import paths."
+    />
+    <link rel="canonical" href="https://buildfileconverter.com/" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BuildFileConverter - PoE2 Build Link to .build Converter" />
+    <meta property="og:description" content="Convert PoE2 build links, check .build files, and import without guesswork." />
+    <meta property="og:url" content="https://buildfileconverter.com/" />
+    <meta property="og:image" content="https://buildfileconverter.com/og-image.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BuildFileConverter - PoE2 Build Link to .build Converter" />
+    <meta name="twitter:description" content="Convert PoE2 build links, check .build files, and import without guesswork." />
+    <meta name="twitter:image" content="https://buildfileconverter.com/og-image.svg" />
+    <link rel="icon" href="/favicon.svg?v=20260603b" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/favicon.svg?v=20260603b" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest?v=20260603b" />
+    <meta name="theme-color" content="#151613" />
+    <link rel="stylesheet" href="./styles.css?v=20260603a" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q39CKKQ5MP");
+      window.BFC_ANALYTICS_ENABLED = true;
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "BuildFileConverter",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "description": "A browser-based utility for converting PoE2 build sources into .build starter files, checking build file structure, and finding import paths.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is BuildFileConverter an official Path of Exile 2 tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. BuildFileConverter is an independent browser-based utility and is not affiliated with or endorsed by the game publisher."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does BuildFileConverter upload my build file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The MVP reads and checks build files in the browser and does not send file content to a server."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="BuildFileConverter home">
+        <img class="brand-logo" src="/logo.svg?v=20260603b" alt="" width="34" height="34" />
+        <span>BuildFileConverter</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#converter">Converter</a>
+        <a href="#import">Import paths</a>
+        <a href="#templates">Templates</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">PoE2 build link to .build converter</p>
+          <h1 id="hero-title">Turn build links into import-ready work.</h1>
+          <p class="lede">
+            Paste a pobb.in link, PoB code, poe.ninja build, or `.build` JSON.
+            BuildFileConverter identifies the source, creates a clean starter file,
+            checks structure, and shows exactly where to import it.
+          </p>
+          <p class="short-answer">
+            A PoE2 `.build` file is a portable build configuration file used to share
+            planner data. Full cross-tool conversion needs the live game schema; this
+            v1 safely captures sources, normalizes JSON, and guides the import flow.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#converter">Convert source</a>
+            <button class="button secondary" id="trySampleTop" type="button">Try sample file</button>
+          </div>
+        </div>
+
+        <figure class="hero-visual">
+          <img
+            src="/hero-build-console.svg?v=20260603a"
+            alt="BuildFileConverter validation console showing a parseable PoE2 build file"
+            width="920"
+            height="680"
+          />
+        </figure>
+      </section>
+
+      <section class="tool-band" id="converter" aria-labelledby="converter-title">
+        <div class="section-head">
+          <p class="kicker">Converter v1</p>
+          <h2 id="converter-title">PoE2 build source converter</h2>
+          <p>
+            Paste a build source and get a `.build` starter file plus a conversion
+            report. Valid `.build` JSON can be normalized immediately; external links
+            are captured with source metadata until full PoB parsing is available.
+          </p>
+        </div>
+
+        <div class="converter-lab">
+          <div class="source-pane">
+            <label class="text-label" for="sourceText">Build source</label>
+            <textarea
+              id="sourceText"
+              class="source-textarea"
+              spellcheck="false"
+              placeholder="Paste a pobb.in URL, poe.ninja build URL, PoB code, or .build JSON"
+            ></textarea>
+            <div class="control-row">
+              <button class="button primary" id="convertSourceBtn" type="button">Convert source</button>
+              <button class="button ghost" id="loadSourceSampleBtn" type="button">Insert pobb.in sample</button>
+              <button class="button ghost" id="clearSourceBtn" type="button">Clear</button>
+            </div>
+          </div>
+
+          <div class="source-result-pane" aria-live="polite">
+            <div class="status-card" id="sourceStatusCard">
+              <span class="status-dot"></span>
+              <div>
+                <h3 id="sourceStatusTitle">Waiting for a build source</h3>
+                <p id="sourceStatusCopy">Paste a link, code, or JSON build file to start.</p>
+              </div>
+            </div>
+            <div class="result-grid compact-grid">
+              <div>
+                <span class="label">Source type</span>
+                <strong id="sourceTypeOut">-</strong>
+              </div>
+              <div>
+                <span class="label">Output</span>
+                <strong id="sourceOutputOut">-</strong>
+              </div>
+            </div>
+            <div class="notice-list">
+              <h3>Conversion report</h3>
+              <ul id="sourceNotesOut">
+                <li>No source analyzed yet.</li>
+              </ul>
+            </div>
+            <div class="control-row stacked-actions">
+              <button class="button secondary full" id="downloadManifestBtn" type="button" disabled>
+                Download .build starter
+              </button>
+              <button class="button ghost full" id="sendToCheckerBtn" type="button" disabled>
+                Send output to checker
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head checker-head">
+          <p class="kicker">Validator</p>
+          <h2>PoE2 .build file checker</h2>
+          <p>
+            Already have a `.build` file? Inspect parse status, top-level keys,
+            warnings, and a normalized download without uploading the file.
+          </p>
+        </div>
+
+        <div class="workspace">
+          <div class="input-pane">
+            <label class="dropzone" for="fileInput">
+              <input id="fileInput" type="file" accept=".build,.json,.txt,application/json,text/plain" />
+              <span class="drop-title">Upload a .build file</span>
+              <span class="drop-copy">or paste content below. Files stay in your browser.</span>
+            </label>
+
+            <label class="text-label" for="buildText">Build file content</label>
+            <textarea
+              id="buildText"
+              spellcheck="false"
+              placeholder='Paste JSON-like .build content here, for example: {"game":"poe2","class":"Mercenary","skills":["Explosive Shot"]}'
+            ></textarea>
+
+            <div class="control-row">
+              <button class="button primary" id="analyzeBtn" type="button">Analyze file</button>
+              <button class="button ghost" id="sampleBtn" type="button">Insert sample</button>
+              <button class="button ghost" id="clearBtn" type="button">Clear</button>
+            </div>
+          </div>
+
+          <div class="result-pane" aria-live="polite">
+            <div class="status-card" id="statusCard">
+              <span class="status-dot"></span>
+              <div>
+                <h3 id="statusTitle">Waiting for a build file</h3>
+                <p id="statusCopy">Upload or paste content to inspect it.</p>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <div>
+                <span class="label">Input kind</span>
+                <strong id="kindOut">-</strong>
+              </div>
+              <div>
+                <span class="label">Size</span>
+                <strong id="sizeOut">-</strong>
+              </div>
+              <div>
+                <span class="label">Lines</span>
+                <strong id="lineOut">-</strong>
+              </div>
+              <div>
+                <span class="label">Keys</span>
+                <strong id="keysOut">-</strong>
+              </div>
+            </div>
+
+            <div class="notice-list">
+              <h3>Warnings and notes</h3>
+              <ul id="warningsOut">
+                <li>No analysis yet.</li>
+              </ul>
+            </div>
+
+            <button class="button secondary full" id="downloadBtn" type="button" disabled>
+              Download normalized JSON
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid" id="import" aria-labelledby="import-title">
+        <div class="section-head compact">
+          <p class="kicker">Importer guide</p>
+          <h2 id="import-title">Where to put a PoE2 .build file</h2>
+          <p>
+            Exact paths may change with patches or launcher installs. Use these as
+            starting points, then verify against your local game folder.
+          </p>
+        </div>
+
+        <div class="os-tabs" role="tablist" aria-label="Operating system import paths">
+          <button class="tab active" type="button" data-os="windows">Windows</button>
+          <button class="tab" type="button" data-os="macos">macOS</button>
+          <button class="tab" type="button" data-os="linux">Linux</button>
+        </div>
+
+        <div class="path-card">
+          <p class="label" id="osLabel">Windows path</p>
+          <code id="pathOut">%USERPROFILE%\Documents\My Games\Path of Exile 2\BuildPlanner</code>
+          <button class="button secondary copy-path" id="copyPathBtn" type="button">Copy path</button>
+          <ol>
+            <li>Download or normalize the `.build` file.</li>
+            <li>Place it in the BuildPlanner folder for your operating system.</li>
+            <li>Open the in-game planner/import screen and select the file.</li>
+          </ol>
+          <p class="path-note" id="pathNote">
+            If this folder does not exist yet, create it or import/export one build in-game first.
+          </p>
+        </div>
+      </section>
+
+      <section class="split-section" id="templates" aria-labelledby="templates-title">
+        <div>
+          <p class="kicker">Templates</p>
+          <h2 id="templates-title">Start with a tiny sample build file.</h2>
+          <p>
+            Use the sample to test the checker and your import workflow. It is a
+            neutral placeholder, not a recommended character build.
+          </p>
+          <button class="button primary" id="downloadSampleBtn" type="button">Download sample</button>
+        </div>
+        <pre class="code-preview"><code>{
+  "game": "poe2",
+  "format": "buildfileconverter.sample.v0",
+  "class": "Mercenary",
+  "skills": ["Explosive Shot"],
+  "notes": "Sample only. Replace with your real build data."
+}</code></pre>
+      </section>
+
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <p class="kicker">FAQ</p>
+        <h2 id="faq-title">Plain answers before you ship a file.</h2>
+        <details>
+          <summary>Is this an official Path of Exile 2 tool?</summary>
+          <p>No. BuildFileConverter is an independent utility and is not affiliated with or endorsed by the game publisher.</p>
+        </details>
+        <details>
+          <summary>Does the site upload my build file?</summary>
+          <p>No. The MVP runs in your browser. It reads the file locally and does not send file content to a server.</p>
+        </details>
+        <details>
+          <summary>Can it calculate DPS or validate every skill?</summary>
+          <p>Not in v1. The current tool checks file structure and import readiness. Full game simulation is intentionally out of scope.</p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <span>BuildFileConverter</span>
+      <span>Independent utility. No affiliation with game publishers.</span>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="./app.js?v=20260603a"></script>
+  </body>
+</html>

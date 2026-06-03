@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#151613"/>
+  <path d="M12 8h31l9 9v39H12z" fill="#21231e" stroke="#caff3f" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M43 8v10h9" fill="none" stroke="#caff3f" stroke-width="4" stroke-linejoin="round"/>
+  <text x="31" y="39" text-anchor="middle" fill="#caff3f" font-family="Menlo, Consolas, monospace" font-size="18" font-weight="900">BF</text>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "name": "BuildFileConverter",
+  "short_name": "BFC",
+  "description": "Browser-side build file checker and import helper.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#151613",
+  "theme_color": "#151613",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "160x160",
+      "type": "image/svg+xml"
+    }
+  ]
+}
