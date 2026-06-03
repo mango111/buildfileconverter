@@ -224,6 +224,7 @@ h3 {
 .tool-band,
 .content-grid,
 .split-section,
+.guide-grid-section,
 .faq {
   padding: clamp(34px, 5vw, 68px) clamp(18px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
@@ -473,6 +474,102 @@ textarea:focus,
   line-height: 1.6;
 }
 
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.guide-card {
+  min-height: 180px;
+  padding: 20px;
+  background: rgba(33, 35, 30, 0.94);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.guide-card:hover {
+  border-color: var(--acid);
+}
+
+.guide-card span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--acid);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.guide-card strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.guide-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.seo-page {
+  padding: clamp(34px, 5vw, 68px) clamp(18px, 5vw, 72px);
+}
+
+.seo-hero {
+  max-width: 980px;
+  padding-bottom: clamp(28px, 5vw, 58px);
+}
+
+.seo-hero h1 {
+  max-width: 920px;
+}
+
+.seo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.38fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.seo-content {
+  display: grid;
+  gap: 18px;
+}
+
+.seo-panel,
+.seo-side {
+  padding: 22px;
+  background: rgba(33, 35, 30, 0.94);
+  border: 1px solid var(--line);
+}
+
+.seo-panel p,
+.seo-panel li,
+.seo-side p,
+.seo-side li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.seo-panel ul,
+.seo-side ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.seo-side {
+  position: sticky;
+  top: 86px;
+}
+
+.seo-side .button {
+  width: 100%;
+  margin-top: 14px;
+}
+
 .faq {
   max-width: none;
 }
@@ -539,8 +636,17 @@ footer a {
   .hero,
   .workspace,
   .converter-lab,
-  .split-section {
+  .split-section,
+  .seo-layout {
     grid-template-columns: 1fr;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-side {
+    position: static;
   }
 
   .hero {

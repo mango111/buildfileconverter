@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PoE2 Build Importer - Import .build Files on Windows, macOS, and Linux</title>
+    <meta name="description" content="A practical PoE2 build importer guide for placing .build files in the right folder and checking import-ready build data." />
+    <link rel="canonical" href="https://buildfileconverter.com/poe2-build-importer/" />
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="/favicon.ico?v=20260603c" sizes="any" />
+    <link rel="icon" href="/favicon.svg?v=20260603c" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48x48.png?v=20260603c" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
+    <link rel="manifest" href="/site.webmanifest?v=20260603c" />
+    <meta name="theme-color" content="#151613" />
+    <link rel="stylesheet" href="/styles.css?v=20260603b" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/"><img class="brand-logo" src="/logo.svg?v=20260603c" alt="" width="34" height="34" /><span>BuildFileConverter</span></a>
+      <nav aria-label="Primary"><a href="/#converter">Converter</a><a href="/#import">Import paths</a><a href="/#guides">Guides</a><a href="/#faq">FAQ</a></nav>
+    </header>
+    <main class="seo-page">
+      <section class="seo-hero">
+        <p class="kicker">PoE2 build importer</p>
+        <h1>Import PoE2 .build files without guessing the folder.</h1>
+        <p class="lede">This guide explains the practical import workflow: create or normalize a `.build` file, place it in the planner folder for your operating system, then open the planner and select the file.</p>
+      </section>
+      <div class="seo-layout">
+        <div class="seo-content">
+          <section class="seo-panel">
+            <h2>Import checklist</h2>
+            <ul>
+              <li>Download a `.build` starter file from the converter.</li>
+              <li>Check that the file parses as JSON before importing.</li>
+              <li>Place it under your Path of Exile 2 BuildPlanner folder.</li>
+              <li>If the folder does not exist, export one build first or create the folder manually.</li>
+            </ul>
+          </section>
+          <section class="seo-panel">
+            <h2>Common import paths</h2>
+            <p>Windows usually starts from `%USERPROFILE%\Documents\My Games\Path of Exile 2\BuildPlanner`. macOS and Linux paths vary by launcher, Steam compatibility data, and local install choices, so the in-page import helper gives copyable starting points.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Why imports fail</h2>
+            <p>Most failed imports come from malformed JSON, wrong folder placement, unsupported fields, or files copied from a source that was never designed for your planner version. Run the checker before moving the file.</p>
+          </section>
+        </div>
+        <aside class="seo-side">
+          <h2>Check before importing</h2>
+          <p>Paste the build file first. The browser-side checker reports parse status, size, keys, and warnings.</p>
+          <a class="button primary" href="/#converter">Check .build file</a>
+          <a class="button secondary" href="/poe2-build-planner/">Planner guide</a>
+        </aside>
+      </div>
+    </main>
+    <footer><span>BuildFileConverter</span><span>Independent PoE2 utility.</span><a href="/">Home</a></footer>
+  </body>
+</html>

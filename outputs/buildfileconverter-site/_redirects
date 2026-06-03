@@ -1,5 +1,4 @@
 https://www.buildfileconverter.com/* https://buildfileconverter.com/:splat 301
-/poe2-build-converter /index.html 200
-/poe2-build-file-importer /index.html 200
-/poe2-build-planner /index.html 200
-/templates /index.html 200
+/poe2-build-converter /poe2-build-link-converter/ 301
+/poe2-build-file-importer /poe2-build-importer/ 301
+/templates /poe2-build-template/ 301
