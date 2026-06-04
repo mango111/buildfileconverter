@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
   </head>
@@ -46,6 +46,36 @@
           <section class="seo-panel">
             <h2>Next step after link capture</h2>
             <p>Download the starter file, keep the original source URL in the manifest, then use the `.build` checker to confirm that your final file is parseable before importing.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>pobb.in, poe.ninja, and PoB-style sources are different</h2>
+            <p>A shared PoE2 build link is not the same thing as a local `.build` file. A pobb.in URL may represent a compressed or hosted build source. A poe.ninja page may be a public character snapshot or ladder view. A PoB-style paste may contain encoded data that needs a dedicated parser before it can become structured class, item, skill, and tree fields. BuildFileConverter detects these source families and records what it sees instead of pretending every link has the same format.</p>
+            <p>This distinction matters for trust. If a converter silently turns every URL into a file that claims to be import-ready, users may import a broken build and blame the planner. The safer v1 behavior is explicit: the starter manifest says `source-captured`, `importReady: false`, and includes the original URL. That gives you a clean handoff artifact while preserving the evidence needed for future parsing.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>What a real conversion would need</h2>
+            <p>A full build link converter needs to decode the source format, map passive tree identifiers, normalize skill gems or support gems, preserve item data, understand ascendancy choices, and write fields that the target planner actually accepts. Those mappings can change with patches and community tool updates. Until that schema is stable, this page is best used as a build source capture and pre-import checklist.</p>
+            <ul>
+              <li>Capture the original source URL and domain.</li>
+              <li>Record the source type and timestamp.</li>
+              <li>Warn that the output is not game-import-ready.</li>
+              <li>Use the checker for final JSON before import.</li>
+            </ul>
+          </section>
+          <section class="seo-panel">
+            <h2>How to judge a captured link</h2>
+            <p>A good captured link record should answer four questions: where did the build come from, when was it captured, what source type was detected, and what still needs to happen before import. If any of those answers are missing, the next person who opens the file has to guess. BuildFileConverter writes those details into the starter manifest so the handoff stays understandable even before full parsing exists.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Is this a real pobb.in to .build converter?</summary>
+              <p>It is a v1 source capture workflow. It creates a `.build` starter manifest from the pobb.in link, but it does not yet decode pobb.in into a fully import-ready PoE2 build file.</p>
+            </details>
+            <details>
+              <summary>Why keep the original URL?</summary>
+              <p>The URL is the strongest evidence for where the build came from. Keep it in the manifest so you can revisit the guide, compare patch changes, or rerun conversion when deeper parsing is available.</p>
+            </details>
           </section>
         </div>
         <aside class="seo-side">

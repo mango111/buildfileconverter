@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
   </head>
@@ -43,6 +43,31 @@
           <section class="seo-panel">
             <h2>When to use it</h2>
             <p>Use this page when you want a lightweight bridge between build sharing and a local planner. It is especially useful for testing import folder setup, preserving source metadata, and turning messy notes into a consistent starter file.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>What the planner importer can validate today</h2>
+            <p>BuildFileConverter can validate file-level basics: whether pasted content is valid JSON, whether it has a top-level object, which major keys appear, whether the extension looks unusual, and whether a generated source manifest is clearly marked as not import-ready. These checks are intentionally boring, but they catch the kinds of problems that break a build handoff before the planner even gets a chance to read it.</p>
+            <p>It cannot validate the full game meaning of a build yet. It does not know whether a passive tree node still exists, whether a skill was changed in the latest patch, or whether an item roll is legal. Those checks require game data and planner-specific schemas. The current importer gives you a safer staging workflow while those deeper integrations are still evolving.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Planner-ready versus source-captured</h2>
+            <p>A planner-ready file should contain real structured build fields that your target planner understands. A source-captured file is different: it records where the build came from, what type of source was detected, and what still needs to happen before import. The site now labels these states separately so you do not mistake a saved source for a finished build.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Practical planner notes</h2>
+            <p>When you are testing a new build workflow, use one small file first instead of importing a large build copied from a guide. Confirm that your planner can see the folder, that the file name is easy to recognize, and that the build notes still point back to the original source. After that, move on to richer data. This slower workflow saves time because it separates folder problems, JSON syntax problems, and real build compatibility problems.</p>
+            <p>If you share the result with another player, include the source URL and the current status. A note like “source captured, not import-ready” is much clearer than sending a file that looks official but still needs manual reconstruction.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Does this create a finished PoE2 planner build?</summary>
+              <p>Only when the input is already valid build JSON that can be normalized. External links are captured as starter manifests and marked not import-ready.</p>
+            </details>
+            <details>
+              <summary>Why use it before a real planner?</summary>
+              <p>It gives you a quick way to preserve sources, check file syntax, and confirm import paths before spending time inside a heavier planner.</p>
+            </details>
           </section>
           <section class="seo-panel">
             <h2>Related workflows</h2>

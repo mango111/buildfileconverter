@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
   </head>
@@ -46,6 +46,27 @@
           <section class="seo-panel">
             <h2>Why imports fail</h2>
             <p>Most failed imports come from malformed JSON, wrong folder placement, unsupported fields, or files copied from a source that was never designed for your planner version. Run the checker before moving the file.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Step-by-step import workflow</h2>
+            <p>Start by keeping the original build source next to the file you want to import. If the source came from a guide, stream, Discord message, or pobb.in link, paste it into BuildFileConverter first and download the starter manifest. The manifest is not a finished game file, but it preserves the source, detected domain, timestamp, and conversion status so you do not lose where the build came from.</p>
+            <p>Next, create or paste the actual `.build` JSON you want to test. Use the checker to confirm that it parses, inspect top-level keys, and look for warnings about missing game, class, or skill fields. A parseable file is not automatically a valid PoE2 planner file, but invalid JSON is always a bad starting point. Fix obvious syntax issues before you move anything into your game or planner directory.</p>
+            <p>Finally, copy the file into the BuildPlanner folder for your operating system. If the folder is missing, create one manually or export a build from the planner once so the application creates its own directory. After import, compare the class, skills, notes, and expected source link against the original guide. Treat this as a handoff workflow, not a DPS simulator.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Patch and version compatibility</h2>
+            <p>PoE2 builds can become stale when a patch changes skill behavior, item modifiers, passive tree nodes, or planner schema fields. A file that imported last league may still parse while pointing to outdated assumptions. For that reason, BuildFileConverter separates structure checks from game validation. It can tell you whether the file is readable and self-descriptive; it cannot confirm that every skill, item, or passive still works in the latest patch.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Can I import a pobb.in link directly?</summary>
+              <p>Not as a finished file in v1. The tool captures the link as source metadata and marks the output as not import-ready until a real parser can map the source into planner fields.</p>
+            </details>
+            <details>
+              <summary>Should I put starter manifests in the game folder?</summary>
+              <p>Only if your planner expects this custom starter format. For normal use, treat the starter as a record of the source and build notes, then create a real planner-compatible `.build` file from it.</p>
+            </details>
           </section>
         </div>
         <aside class="seo-side">

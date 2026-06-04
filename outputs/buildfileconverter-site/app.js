@@ -169,6 +169,7 @@ function classifyBuildSource(raw) {
   } catch {}
 
   const lower = trimmed.toLowerCase();
+  const sourceDomain = url ? url.hostname.replace(/^www\./, "") : "";
   const sourceType = url?.hostname.includes("pobb.in")
     ? "pobb.in link"
     : url?.hostname.includes("poe.ninja")
@@ -188,11 +189,19 @@ function classifyBuildSource(raw) {
     format: "buildfileconverter.source.v1",
     importReady: false,
     conversionStatus: "source-captured",
+    sourceDomain,
     source: {
       type: sourceType,
       value: trimmed,
       capturedAt: new Date().toISOString()
     },
+    suggestedNextStep: "Use the source link to export or recreate real build fields, then validate the final .build JSON before import.",
+    importChecklist: [
+      "Keep the original source URL with the build notes.",
+      "Do not treat this starter manifest as game-import-ready.",
+      "Add real class, skill, item, passive, and version fields when your planner schema is known.",
+      "Run the .build checker before placing the file in the BuildPlanner folder."
+    ],
     notes: [
       "This starter file captures the build source for later conversion.",
       "Full game-ready conversion requires parsing the source format and matching the current PoE2 build schema.",
@@ -202,16 +211,20 @@ function classifyBuildSource(raw) {
 
   return {
     type: sourceType,
-    output: ".build starter",
+    output: ".build starter (not import-ready)",
     manifest: JSON.stringify(manifestObject, null, 2),
     canDownload: true,
     canCheck: true,
     status: "warn",
-    title: "Source captured",
-    copy: "A .build starter can be generated. Full game-ready conversion still needs source parsing.",
+    title: "Source captured, not import-ready",
+    copy: "A starter manifest can be generated. This is not a game-import-ready conversion yet.",
     notes: [
       `${sourceType} detected.`,
+      sourceDomain ? `Detected source domain: ${sourceDomain}.` : "No source domain detected; treating input as pasted build text.",
+      "Status badge: source-captured / importReady: false.",
       "Generated output captures the source and conversion status.",
+      "Suggested next step: recreate or export real build fields, then run the .build checker.",
+      "Import checklist: keep the source URL, add real build fields, validate JSON, then place the file in the BuildPlanner folder.",
       "Next milestone: parse this source into real class, skill, passive, and item fields."
     ]
   };

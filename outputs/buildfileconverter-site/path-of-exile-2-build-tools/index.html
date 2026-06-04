@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
   </head>
@@ -46,6 +46,38 @@
           <section class="seo-panel">
             <h2>What it does not do</h2>
             <p>It does not replace a full planner, simulate DPS, or promise exact passive tree compatibility. It focuses on the file and import layer where small mistakes often break a build handoff.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Recommended tool workflow</h2>
+            <p>If you are collecting builds from YouTube, Discord, Reddit, poe.ninja, pobb.in, or a written guide, begin by saving the original source. Paste the URL or source text into the converter and download the starter manifest. This gives you a record of where the build came from and whether the site treated it as a link, PoB-style code, or raw build note.</p>
+            <p>After that, use the checker for any actual `.build` JSON you plan to import. A good build handoff should be parseable, self-descriptive, and tied back to a source. The checker cannot verify every passive or item, but it can catch basic file problems before you waste time debugging folder placement.</p>
+            <p>Finally, use the import path helper. File location is a boring detail, but it is one of the most common reasons an otherwise usable build never appears in a planner.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>How this hub should grow</h2>
+            <ul>
+              <li>Source capture today, deeper parsing later.</li>
+              <li>More realistic `.build` examples as community schemas stabilize.</li>
+              <li>Discord and Reddit summary output for easier build sharing.</li>
+              <li>Patch compatibility notes so old builds are not mistaken for current recommendations.</li>
+            </ul>
+            <p>The goal is not to become a full simulator. The goal is to make the build file handoff less fragile.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Why small build tools still matter</h2>
+            <p>Large planners are excellent once you are already inside the build. Smaller utilities help before and after that moment: saving a link, checking a file, copying a folder path, or explaining why an import is not ready. Those steps are easy to ignore, but they are exactly where shared community builds often break. A clear handoff tool can reduce confusion even without calculating damage or simulating encounters.</p>
+            <p>For SEO and real users, this page is the index for that workflow. It points each intent to the right page instead of forcing every visitor through one overloaded converter screen.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Which tool should I start with?</summary>
+              <p>If you have a link, start with source capture. If you have file content, start with the `.build` checker. If you only need folder help, jump to the import path section.</p>
+            </details>
+            <details>
+              <summary>Can this replace a build planner?</summary>
+              <p>No. It complements planners by handling source records, file checks, and import workflow details.</p>
+            </details>
           </section>
         </div>
         <aside class="seo-side">

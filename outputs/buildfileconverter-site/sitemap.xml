@@ -17,6 +17,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://buildfileconverter.com/pobb-in-to-build-file/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://buildfileconverter.com/poe2-pob2-build-converter/</loc>
     <priority>0.7</priority>
   </url>

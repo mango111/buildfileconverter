@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
   </head>
@@ -52,6 +52,46 @@
           <section class="seo-panel">
             <h2>Template safety</h2>
             <p>This sample is not a recommended character build. It is intentionally small so you can test the import workflow without confusing placeholder data for a real build guide.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>What a real .build file may contain</h2>
+            <p>A real planner file may include fields for game version, class, ascendancy, active skills, support gems, passive choices, items, notes, and tool-specific metadata. Different community planners can use different names and nesting structures. That means a tiny sample is useful for testing JSON parsing, but it is not proof that every planner will import the same file.</p>
+            <p>The safest starter template keeps fields obvious and human-readable. Start with `game`, `format`, `class`, `skills`, and `notes`, then add planner-specific fields only when you know the target schema. If you copy data from a guide, keep the guide URL in notes or source metadata so the build can be checked against the original context later.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>How to use the template responsibly</h2>
+            <ul>
+              <li>Use it to test whether your import folder and file handling work.</li>
+              <li>Replace placeholder skills with real build data before sharing.</li>
+              <li>Add a patch or league note when the source build depends on current balance.</li>
+              <li>Run the checker after every manual edit.</li>
+            </ul>
+            <p>If your final file still says `buildfileconverter.sample.v0`, it should not be treated as a finished build. Rename the format or add real planner metadata once you have a target schema.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>From sample to real build notes</h2>
+            <p>A practical template usually grows in layers. First, keep identity fields such as game, format, class, and source. Second, add the main skill setup and any notes that explain why the build works. Third, add planner-specific data only when you know the importer accepts it. This keeps the file readable for humans and reduces the chance that one invalid nested field breaks the whole import.</p>
+            <p>If you are adapting a build from pobb.in, poe.ninja, or a written guide, add the original URL before you add detailed fields. Source attribution is not just courtesy; it is a debugging tool. When a later patch changes a skill or item, the source URL helps you decide whether the file should be updated, archived, or deleted.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Validation checklist for templates</h2>
+            <ul>
+              <li>The file parses as JSON.</li>
+              <li>The top-level object includes enough context to identify the build.</li>
+              <li>The notes say whether this is a sample, source capture, or finished planner file.</li>
+              <li>The source or patch context is preserved.</li>
+            </ul>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Is this an official PoE2 .build schema?</summary>
+              <p>No. It is a BuildFileConverter starter format for testing and handoff. It is intentionally transparent about what it can and cannot represent.</p>
+            </details>
+            <details>
+              <summary>Why include a sample at all?</summary>
+              <p>Samples are useful for checking upload, paste, normalize, download, and folder workflows before you risk editing a larger build file.</p>
+            </details>
           </section>
         </div>
         <aside class="seo-side">

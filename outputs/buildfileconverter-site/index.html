@@ -3,24 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PoE2 Build Planner Importer - Convert Build Links to .build Files</title>
+    <title>PoE2 Build Source Capture and .build File Checker</title>
     <meta
       name="description"
-      content="Use BuildFileConverter as a PoE2 build planner importer, build link converter, .build file checker, and Path of Exile 2 build tools hub."
+      content="Capture PoE2 build links, create .build starter files, check build JSON, and find import paths before moving files into a planner."
     />
     <link rel="canonical" href="https://buildfileconverter.com/" />
     <meta name="robots" content="index,follow" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="PoE2 Build Planner Importer - Convert Build Links to .build Files" />
-    <meta property="og:description" content="Convert PoE2 build links, check .build files, find import paths, and use starter templates." />
+    <meta property="og:title" content="PoE2 Build Source Capture and .build File Checker" />
+    <meta property="og:description" content="Capture PoE2 build links, check .build files, find import paths, and use starter templates." />
     <meta property="og:url" content="https://buildfileconverter.com/" />
     <meta property="og:image" content="https://buildfileconverter.com/og-image.svg" />
     <meta property="og:image:type" content="image/svg+xml" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="PoE2 Build Planner Importer - Convert Build Links to .build Files" />
-    <meta name="twitter:description" content="Convert PoE2 build links, check .build files, find import paths, and use starter templates." />
+    <meta name="twitter:title" content="PoE2 Build Source Capture and .build File Checker" />
+    <meta name="twitter:description" content="Capture PoE2 build links, check .build files, find import paths, and use starter templates." />
     <meta name="twitter:image" content="https://buildfileconverter.com/og-image.svg" />
     <link rel="icon" href="/favicon.ico?v=20260603c" sizes="any" />
     <link rel="icon" href="/favicon.svg?v=20260603c" type="image/svg+xml" />
@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -46,7 +46,7 @@
         "name": "BuildFileConverter",
         "applicationCategory": "GameApplication",
         "operatingSystem": "Web",
-        "description": "A browser-based PoE2 build planner importer for converting build sources into .build starter files, checking build file structure, and finding import paths.",
+        "description": "A browser-based PoE2 build source capture, .build file checker, starter manifest generator, and import path helper.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
@@ -93,20 +93,21 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="kicker">PoE2 build planner importer</p>
-          <h1 id="hero-title">Convert PoE2 build links into planner-ready files.</h1>
+          <p class="kicker">PoE2 build source capture</p>
+          <h1 id="hero-title">Capture PoE2 build links and check .build files before import.</h1>
           <p class="lede">
             Paste a pobb.in link, PoB code, poe.ninja build, or `.build` JSON.
-            BuildFileConverter works as a PoE2 build link converter, .build file
+            BuildFileConverter works as a PoE2 build source capture tool, .build file
             checker, import path guide, and starter template hub.
           </p>
           <p class="short-answer">
             A PoE2 `.build` file is a portable build configuration file used to share
             planner data. Full cross-tool conversion needs the live game schema; this
-            v1 safely captures sources, normalizes JSON, and guides the import flow.
+            v1 safely captures sources, normalizes JSON, and guides the import flow;
+            external links are not marked game-import-ready until a real parser exists.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#converter">Convert source</a>
+            <a class="button primary" href="#converter">Capture build source</a>
             <button class="button secondary" id="trySampleTop" type="button">Try sample file</button>
           </div>
         </div>
@@ -123,12 +124,12 @@
 
       <section class="tool-band" id="converter" aria-labelledby="converter-title">
         <div class="section-head">
-          <p class="kicker">Converter v1</p>
-          <h2 id="converter-title">PoE2 build source converter</h2>
+          <p class="kicker">Source capture v1</p>
+          <h2 id="converter-title">PoE2 build source capture</h2>
           <p>
             Paste a build source and get a `.build` starter file plus a conversion
             report. Valid `.build` JSON can be normalized immediately; external links
-            are captured with source metadata until full PoB parsing is available.
+            are captured with source metadata and a clear not-import-ready warning.
           </p>
         </div>
 
@@ -142,7 +143,7 @@
               placeholder="Paste a pobb.in URL, poe.ninja build URL, PoB code, or .build JSON"
             ></textarea>
             <div class="control-row">
-              <button class="button primary" id="convertSourceBtn" type="button">Convert source</button>
+              <button class="button primary" id="convertSourceBtn" type="button">Capture build source</button>
               <button class="button ghost" id="loadSourceSampleBtn" type="button">Insert pobb.in sample</button>
               <button class="button ghost" id="clearSourceBtn" type="button">Clear</button>
             </div>
@@ -174,7 +175,7 @@
             </div>
             <div class="control-row stacked-actions">
               <button class="button secondary full" id="downloadManifestBtn" type="button" disabled>
-                Download .build starter
+                Download starter manifest
               </button>
               <button class="button ghost full" id="sendToCheckerBtn" type="button" disabled>
                 Send output to checker
@@ -332,6 +333,11 @@
             <strong>PoE2 Build Link Converter</strong>
             <p>Capture pobb.in, poe.ninja, Path of Exile, and PoB-style sources.</p>
           </a>
+          <a class="guide-card" href="/pobb-in-to-build-file/">
+            <span>pobb.in workflow</span>
+            <strong>pobb.in to .build File</strong>
+            <p>Capture a pobb.in source, download a starter manifest, and avoid fake import-ready claims.</p>
+          </a>
           <a class="guide-card" href="/poe2-pob2-build-converter/">
             <span>PoB2 bridge</span>
             <strong>PoE2 PoB2 Build Converter</strong>
@@ -365,15 +371,25 @@
           <summary>Can it calculate DPS or validate every skill?</summary>
           <p>Not in v1. The current tool checks file structure and import readiness. Full game simulation is intentionally out of scope.</p>
         </details>
+        <details>
+          <summary>Can I convert pobb.in to a .build file?</summary>
+          <p>In v1, pobb.in links are captured as source metadata and saved into a starter manifest with <code>importReady: false</code>. A true import-ready conversion needs a parser for the source format and a stable target planner schema.</p>
+        </details>
+        <details>
+          <summary>What can the .build checker validate today?</summary>
+          <p>It can validate browser-side basics: JSON parsing, top-level keys, file size, line count, and obvious missing context such as game, class, or skill fields. It cannot yet verify every PoE2 item, passive, gem, or patch-specific rule.</p>
+        </details>
       </section>
     </main>
 
     <footer>
       <span>BuildFileConverter</span>
       <span>Independent utility. No affiliation with game publishers.</span>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="./app.js?v=20260603a"></script>
+    <script src="/app.js?v=20260604a"></script>
   </body>
 </html>

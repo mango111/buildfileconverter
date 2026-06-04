@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>pobb.in to .build File Converter for PoE2 - Source Capture v1</title>
+    <meta name="description" content="Capture a pobb.in PoE2 build link, create a .build starter manifest, understand import limits, and check final .build JSON before import." />
+    <link rel="canonical" href="https://buildfileconverter.com/pobb-in-to-build-file/" />
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="/favicon.ico?v=20260603c" sizes="any" />
+    <link rel="icon" href="/favicon.svg?v=20260603c" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48x48.png?v=20260603c" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
+    <link rel="manifest" href="/site.webmanifest?v=20260603c" />
+    <meta name="theme-color" content="#151613" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/"><img class="brand-logo" src="/logo.svg?v=20260603c" alt="" width="34" height="34" /><span>BuildFileConverter</span></a>
+      <nav aria-label="Primary"><a href="/#converter">Converter</a><a href="/#import">Import paths</a><a href="/#guides">Guides</a><a href="/#faq">FAQ</a></nav>
+    </header>
+    <main class="seo-page">
+      <section class="seo-hero">
+        <p class="kicker">pobb.in to .build file</p>
+        <h1>Capture a pobb.in build link before turning it into a PoE2 .build file.</h1>
+        <p class="lede">If you searched for a pobb.in to `.build` file converter, the important detail is that a hosted build link and a finished local planner file are not the same object. BuildFileConverter v1 captures the pobb.in source, creates a starter manifest, and helps you check the final `.build` JSON before import.</p>
+      </section>
+      <div class="seo-layout">
+        <div class="seo-content">
+          <section class="seo-panel">
+            <h2>What happens when you paste a pobb.in link</h2>
+            <p>The converter detects the pobb.in domain, records the original URL, marks the result as `source-captured`, and generates a `.build` starter manifest with `importReady: false`. That status is intentional. It tells you the source has been saved, but the file has not yet been decoded into real class, skill, item, passive, and planner fields.</p>
+            <p>This is useful when you are collecting builds from guides, Discord, Reddit, YouTube descriptions, or ladder discussions. Instead of losing the source link in a chat thread, you get a structured record that can travel with your notes and later be expanded into a real build file when parsing support is available.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Why v1 does not claim full conversion</h2>
+            <p>A full pobb.in conversion needs a maintained decoder for the hosted source format and a target schema for the planner you want to import into. It must preserve build-critical data such as class, ascendancy, skill setup, support gems, passive tree choices, items, notes, and patch assumptions. If a tool guesses these fields, the output may look importable while silently changing the build.</p>
+            <p>BuildFileConverter avoids that trap. It gives you source capture, a conversion status badge, a starter manifest, and a checker for final JSON. When the input is already valid `.build` JSON, it can normalize the file immediately. When the input is an external pobb.in URL, it clearly labels the result as not game-import-ready.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Recommended workflow</h2>
+            <ul>
+              <li>Paste the pobb.in URL into the source capture tool.</li>
+              <li>Download the starter manifest and keep it with your build notes.</li>
+              <li>Use the original pobb.in page to recreate or export real build fields in your target planner.</li>
+              <li>Paste the final `.build` JSON into the checker before moving it into the BuildPlanner folder.</li>
+              <li>Keep a patch or league note if the build depends on current balance.</li>
+            </ul>
+          </section>
+          <section class="seo-panel">
+            <h2>What a finished .build file may need</h2>
+            <p>A finished PoE2 planner file may include game version, build format, class, ascendancy, main skills, support setup, item data, passive allocations, configuration notes, and tool-specific metadata. Different planners may use different field names. That is why the checker focuses on parseability and obvious structure rather than pretending there is one universal official schema.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Can I convert pobb.in to a real import-ready .build file today?</summary>
+              <p>Not fully in v1. You can capture the pobb.in source and create a starter manifest. A true import-ready conversion needs source decoding and target planner schema support.</p>
+            </details>
+            <details>
+              <summary>Why is the output called a starter manifest?</summary>
+              <p>Because it stores source metadata and next steps. It is a starting point for a build handoff, not a guarantee that the game or planner can import it directly.</p>
+            </details>
+            <details>
+              <summary>What should I do after source capture?</summary>
+              <p>Use the original build source to create real planner fields, then run the final JSON through the `.build` checker and follow the import path guide.</p>
+            </details>
+          </section>
+        </div>
+        <aside class="seo-side">
+          <h2>Paste your pobb.in link</h2>
+          <p>Open the source capture tool, paste a pobb.in URL, and download a starter manifest with an explicit import-ready warning.</p>
+          <a class="button primary" href="/#converter">Capture pobb.in source</a>
+          <a class="button secondary" href="/poe2-build-link-converter/">Build link guide</a>
+        </aside>
+      </div>
+    </main>
+    <footer><span>BuildFileConverter</span><span>Independent PoE2 utility.</span><a href="/privacy">Privacy</a><a href="/terms">Terms</a></footer>
+  </body>
+</html>

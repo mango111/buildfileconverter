@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260603c" />
     <link rel="manifest" href="/site.webmanifest?v=20260603c" />
     <meta name="theme-color" content="#151613" />
-    <link rel="stylesheet" href="/styles.css?v=20260603d" />
+    <link rel="stylesheet" href="/styles.css?v=20260604a" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39CKKQ5MP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-Q39CKKQ5MP");window.BFC_ANALYTICS_ENABLED=true;</script>
   </head>
@@ -46,6 +46,37 @@
           <section class="seo-panel">
             <h2>Best use case</h2>
             <p>Use this converter when you want to archive a build source, create a consistent handoff file, or prepare a starter that can later be enriched as PoE2 community tool schemas mature.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>PoB2 conversion boundaries</h2>
+            <p>PoB and PoB2-style build data can contain much more than a visible class and skill list. A useful conversion needs to preserve tree choices, gem setup, item stats, weapon swaps, configuration notes, and sometimes assumptions about buffs or enemy settings. If any of those fields are dropped or guessed, the output may look valid while representing a different build. That is why this page frames conversion as staged work instead of a single magic button.</p>
+            <p>BuildFileConverter v1 handles the first stage: it captures the source and makes the conversion status explicit. The resulting starter file is useful for documentation, sharing, and later parsing, but it is not marked import-ready. When reliable PoE2 schemas and source decoders are available, the next stage can map the captured source into real planner fields.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>How to review a PoB-style source today</h2>
+            <ul>
+              <li>Paste the source into the converter and confirm whether it is treated as a link, text source, or encoded PoB-style block.</li>
+              <li>Download the starter manifest and keep it with the original guide notes.</li>
+              <li>Do not rename the starter as a finished game import unless your planner supports the fields inside it.</li>
+              <li>If you manually create final JSON, run the checker and inspect warnings before import.</li>
+            </ul>
+            <p>This workflow is conservative, but it avoids the worst failure mode: a tool promising a complete conversion while silently losing build-critical details.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>Patch-sensitive fields to watch</h2>
+            <p>PoB-style sources can include assumptions that become outdated after balance changes. Skill scaling, support interactions, passive tree location, item modifiers, and ailment or buff configuration can all shift between patches. Even after a parser exists, a conversion should carry enough version context to explain when the source was captured. Until then, keep patch notes in the manifest or build notes so a future import is not mistaken for a current recommendation.</p>
+            <p>This is especially important for build guides that circulate long after they were written. A file can be technically parseable while still being strategically obsolete.</p>
+          </section>
+          <section class="seo-panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary>Can this decode PoB2 data?</summary>
+              <p>Not fully in v1. It can identify PoB-style pasted input and create a starter record, but full decoding requires a maintained parser and target planner schema.</p>
+            </details>
+            <details>
+              <summary>Why not guess missing fields?</summary>
+              <p>Guessing class, item, passive, or gem fields can produce a misleading build. The tool prefers explicit warnings over fake confidence.</p>
+            </details>
           </section>
         </div>
         <aside class="seo-side">
